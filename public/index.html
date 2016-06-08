@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title>Cardboard VR Prototype</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+        WebVRConfig = {
+            BUFFER_SCALE: 2.0
+        }
+    </script>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!--
+    <div id="stereo-text-layers">
+  <div class="eye" id="left">
+    <div class="cross">+</div>
+    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</div>
+  </div>
+  <div class="eye" id="right">
+    <div class="cross">+</div>
+    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</div>
+  </div>
+</div>
+    -->
+    <div id="container"></div>
+
+    <script type="text/javascript" src="js/bundle.js"></script>
+    <script type="text/javascript" src="js/vendor/webvr-polyfill.js"></script>
+    <script type="text/javascript" src="js/vendor/webvr-manager.js"></script>
+    <script>
+        app.init();
+    </script>
+</body>
+</html>
