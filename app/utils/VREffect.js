@@ -240,6 +240,13 @@ var VREffect = function ( renderer, onError ) {
 
 	var cameraR = new THREE.PerspectiveCamera();
 	cameraR.layers.enable( 2 );
+    
+    this.getCameraL = function () {
+      return cameraL;  
+    };
+    this.getCameraR = function () {
+      return cameraR;  
+    };
 
 	this.render = function ( scene, camera ) {
 
@@ -409,6 +416,8 @@ var VREffect = function ( renderer, onError ) {
 		return fovPortToProjection( fovPort, rightHanded, zNear, zFar );
 
 	}
+    
+    
 
 };
 

@@ -1,2 +1,1 @@
-# WebVR Google UNHCR
 # VReator
