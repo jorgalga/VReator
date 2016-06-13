@@ -112,7 +112,7 @@ World3D.prototype.setup = function() {
     mesh.position.z = -3;
     this.camera.add(mesh);
     //this.scene.add(mesh);
-    console.log(this.toScreenPosition(mesh,this.camera));
+    //console.log(this.toScreenPosition(mesh,this.camera));
     
    
  
@@ -127,7 +127,7 @@ World3D.prototype.setup = function() {
     
 
     //Display resolution
-    console.log(screen.width+ " , " + screen.height);
+    //console.log(screen.width+ " , " + screen.height);
     window.screen.availHeight;
     
 
@@ -264,20 +264,24 @@ World3D.prototype.navigateTo = function( l ){
 };
 
 World3D.prototype.onModeChange = function( n, o ) {
-    $( "#stereo-text-layers" ).appendTo( $( ".webvr-polyfill-fullscreen-wrapper" ) );
+  //  $( "#stereo-text-layers" ).appendTo( $( ".webvr-polyfill-fullscreen-wrapper" ) );
     switch(n){
-        case 3 :
+        case 3 :{
             console.log('Passing to VR mode');
-            $( "#stereo-text-layers" ).appendTo( $( ".webvr-polyfill-fullscreen-wrapper" ) );
+            
+            var copia =  $( "#stereo-text-layers" ).clone();
+            copia.appendTo( $( ".webvr-polyfill-fullscreen-wrapper" ) );
+            
+            $("#left").css("width","50%");
+            $("#right").show();
             
             if(this.trackedCenter == false){
                 this.trackedCenter = true;  
-                
-            }
-            
-            
-            
-            break;
+            }   
+        }break;
+        default:{
+            $( "#stereo-text-layers" ).appendTo( $( "#container" ) );
+        }break;
     }
 };
 
@@ -388,10 +392,8 @@ World3D.prototype.render = function( timestamp ) {
 
     
     this.controls.update();
-    this.camera.updateMatrix();
-    
+    this.camera.updateMatrix();   
     this.manager.render( this.scene, this.camera, timestamp);
-    
     
     window.requestAnimationFrame( this.render.bind( this ) );
 };
